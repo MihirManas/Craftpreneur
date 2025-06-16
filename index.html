@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Craftpreneur: From Passion to Profit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Artisan Earth (Warm neutrals like beige/sand, with a muted terracotta accent and dark text for contrast) -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling landing page structure. It starts with a Hero section, defines the market 'Problem/Opportunity' (visualized with a Chart.js bar chart), presents the 'Solution' (the course), details the 'Modules' via interactive tabs, shows the 'Value Proposition' in a card layout, visualizes the 'Learner Journey' with a CSS diagram, and ends with a strong CTA. This narrative flow (Problem->Solution->Benefits) is highly persuasive and user-friendly for a proposal. -->
+    <!-- Visualization & Content Choices: 1. Market Gap (Report Info) -> Goal: Compare -> Viz: Bar Chart (Chart.js) -> Interaction: None (static display) -> Justification: Visually quantifies the problem, making it more impactful than text alone. 2. Course Modules (Report Info) -> Goal: Organize -> Method: Interactive Tabs (HTML/CSS/JS) -> Interaction: Click to reveal content -> Justification: Prevents info overload and encourages user engagement. 3. Learner Journey (Report Info) -> Goal: Show Process -> Method: CSS Flexbox Diagram -> Interaction: None -> Justification: Visually simplifies the learner's path to success. 4. Value Proposition (Report Info) -> Goal: Inform/Persuade -> Method: Icon+Text Cards (HTML/CSS) -> Interaction: Hover effects -> Justification: Scannable, visually appealing, breaks up text. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #332C2B;
+        }
+        .bg-artisan-light { background-color: #F5F1ED; }
+        .bg-artisan-accent { background-color: #D97706; } /* Amber-600 */
+        .text-artisan-accent { color: #D97706; }
+        .border-artisan-accent { border-color: #D97706; }
+        .tab-active {
+            background-color: #D97706;
+            color: #FFFFFF;
+        }
+        .tab-inactive {
+            background-color: #E7E5E4;
+            color: #57534E;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="antialiased smooth-scroll">
+
+    <!-- Header & Hero Section -->
+    <header class="bg-artisan-light text-center py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Bharat Craftpreneur</h1>
+            <p class="text-xl md:text-2xl mt-4 text-artisan-accent font-medium">Transforming India's Artisan Heritage into Global Success</p>
+            <div class="mt-8 max-w-2xl mx-auto">
+                 <p class="text-lg md:text-xl font-semibold text-gray-700 p-4 bg-white/60 rounded-lg shadow">"Don't just admire India's crafts, <span class="text-artisan-accent">monetize</span> them! Your definitive guide to launch, brand, and sell your artisanal creations to a waiting world. Stop dreaming, start earning."</p>
+            </div>
+            <a href="#modules" class="mt-10 inline-block bg-artisan-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-amber-700 transition duration-300 shadow-lg">Explore the Course</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- The Opportunity Section -->
+        <section id="opportunity" class="py-16 sm:py-24">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">The Untapped Opportunity</h2>
+                <p class="mt-4 text-lg text-gray-600">Millions of talented artisans and passionate entrepreneurs in India possess incredible skills, yet lack a clear roadmap to navigate the business world. The current skilling landscape is crowded with tech courses, leaving a massive, unaddressed need for practical, craft-focused business education.</p>
+            </div>
+            <div class="mt-12">
+                <div class="chart-container">
+                    <canvas id="marketGapChart"></canvas>
+                </div>
+                 <p class="text-center mt-4 text-sm text-gray-500">This chart illustrates the current imbalance in the skilling ecosystem, highlighting the critical need for a program like Bharat Craftpreneur.</p>
+            </div>
+        </section>
+
+        <!-- The Learner's Journey Section -->
+        <section class="py-16 sm:py-24 bg-artisan-light rounded-2xl">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Your Journey from Passion to Profit</h2>
+                <p class="mt-4 text-lg text-gray-600">We provide a clear, step-by-step path that transforms your creative passion into a thriving global business. This is not just a course; it's a complete transformation roadmap.</p>
+            </div>
+            <div class="mt-16 max-w-5xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-4">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-artisan-accent text-white rounded-full flex items-center justify-center text-2xl font-bold">1</div>
+                        <p class="mt-3 font-semibold text-lg">Business Foundation</p>
+                        <p class="text-sm text-gray-600">Build a legitimate enterprise.</p>
+                    </div>
+                    <div class="flex-1 h-1 w-24 md:w-auto bg-gray-300 md:h-1"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-artisan-accent text-white rounded-full flex items-center justify-center text-2xl font-bold">2</div>
+                        <p class="mt-3 font-semibold text-lg">Digital Showcase</p>
+                        <p class="text-sm text-gray-600">Master online sales & marketing.</p>
+                    </div>
+                     <div class="flex-1 h-1 w-24 md:w-auto bg-gray-300 md:h-1"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-artisan-accent text-white rounded-full flex items-center justify-center text-2xl font-bold">3</div>
+                        <p class="mt-3 font-semibold text-lg">Global Reach</p>
+                        <p class="text-sm text-gray-600">Conquer logistics and exports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="py-16 sm:py-24">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Interactive Course Modules</h2>
+                <p class="mt-4 text-lg text-gray-600">Click on each module to discover the practical skills and knowledge you will gain. Our curriculum is designed for immediate, real-world application.</p>
+            </div>
+
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row justify-center rounded-lg shadow-md overflow-hidden">
+                    <button class="tab-button flex-1 py-3 px-4 font-semibold text-lg transition duration-300 tab-active" onclick="openTab('foundation')">
+                        Business Foundation
+                    </button>
+                    <button class="tab-button flex-1 py-3 px-4 font-semibold text-lg transition duration-300 tab-inactive" onclick="openTab('digital')">
+                        Digital Showcase
+                    </button>
+                    <button class="tab-button flex-1 py-3 px-4 font-semibold text-lg transition duration-300 tab-inactive" onclick="openTab('global')">
+                        Global Reach
+                    </button>
+                </div>
+
+                <div id="foundation" class="tab-content p-8 bg-white rounded-b-lg border border-t-0 border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-800">Module 1: Crafting Your Business Foundation</h3>
+                    <p class="mt-2 text-gray-600">Demystifying the legal, administrative, and foundational aspects of establishing a legitimate craft business.</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-artisan-accent font-bold text-xl mr-3 mt-1">✓</span>
+                            <div><strong class="text-gray-700">Actionable Steps:</strong> Learn step-by-step instructions on company registration (Proprietorship, LLP), obtaining GST registration, and understanding essential business licenses.</div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-artisan-accent font-bold text-xl mr-3 mt-1">✓</span>
+                            <div><strong class="text-gray-700">Build Credibility:</strong> Navigate the process for NSDC certifications to build trust and access government schemes.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="digital" class="tab-content p-8 bg-white rounded-b-lg border border-t-0 border-gray-200" style="display: none;">
+                    <h3 class="text-2xl font-bold text-gray-800">Module 2: Mastering the Art of Digital Showcase & Sales</h3>
+                    <p class="mt-2 text-gray-600">Equipping you with the essential digital skills to beautifully present and effectively sell your handcrafted products online.</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-artisan-accent font-bold text-xl mr-3 mt-1">✓</span>
+                            <div><strong class="text-gray-700">Visual Storytelling:</strong> Master professional product photography (even with a smartphone) and craft compelling brand stories that sell.</div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-artisan-accent font-bold text-xl mr-3 mt-1">✓</span>
+                            <div><strong class="text-gray-700">E-commerce Excellence:</strong> Set up and manage e-commerce platforms (Etsy, local marketplaces), develop effective social media strategies, and handle secure online payments.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="global" class="tab-content p-8 bg-white rounded-b-lg border border-t-0 border-gray-200" style="display: none;">
+                    <h3 class="text-2xl font-bold text-gray-800">Module 3: Global Reach - Logistics, Quality & Exports</h3>
+                    <p class="mt-2 text-gray-600">Navigating the critical challenges of packaging, shipping, quality assurance, and international trade to access global markets.</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex items-start">
+                           <span class="text-artisan-accent font-bold text-xl mr-3 mt-1">✓</span>
+                            <div><strong class="text-gray-700">Secure Shipping:</strong> Learn best practices for packaging delicate crafts, and understand domestic and international shipping logistics.</div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-artisan-accent font-bold text-xl mr-3 mt-1">✓</span>
+                            <div><strong class="text-gray-700">Go International:</strong> Get guidance on obtaining the crucial Export-Import Code (IEC), adhering to international quality standards, and basic customs procedures.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why It Works Section -->
+        <section class="py-16 sm:py-24">
+             <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Bharat Craftpreneur Delivers Results</h2>
+                <p class="mt-4 text-lg text-gray-600">This course is more than just information; it's a catalyst for real-world success. We provide tangible solutions that lead to growth, legitimacy, and financial independence.</p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl text-artisan-accent">💡</div>
+                    <h3 class="text-xl font-bold mt-4">Fills a Critical Void</h3>
+                    <p class="mt-2 text-gray-600">Provides a unique, comprehensive guide addressing the specific challenges of Indian craft entrepreneurs.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl text-artisan-accent">🚀</div>
+                    <h3 class="text-xl font-bold mt-4">Empowers Livelihood</h3>
+                    <p class="mt-2 text-gray-600">Offers a clear, actionable roadmap to turn passion into a sustainable and profitable business.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl text-artisan-accent">🛡️</div>
+                    <h3 class="text-xl font-bold mt-4">Provides Legitimacy</h3>
+                    <p class="mt-2 text-gray-600">Guides you through formal registration and certification, opening doors to larger clients and funding.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl text-artisan-accent">🌍</div>
+                    <h3 class="text-xl font-bold mt-4">Unlocks Global Markets</h3>
+                    <p class="mt-2 text-gray-600">Equips you with the practical tools and knowledge to thrive in lucrative international markets.</p>
+                </div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl text-artisan-accent">🤝</div>
+                    <h3 class="text-xl font-bold mt-4">Builds Trust</h3>
+                    <p class="mt-2 text-gray-600">In partnership with trusted voices, ensuring the content is authentic and deeply understands your needs.</p>
+                </div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl text-artisan-accent">👥</div>
+                    <h3 class="text-xl font-bold mt-4">Fosters Community</h3>
+                    <p class="mt-2 text-gray-600">Connect with fellow creators, share insights, and grow together through ongoing engagement and events.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer / CTA -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-4xl mx-auto py-16 px-4 text-center">
+             <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Ready to Build Your Craft Empire?</h2>
+             <p class="mt-4 text-lg text-gray-300">Join a community of passionate creators and turn your artisan skills into a global brand. Your journey starts now.</p>
+             <a href="#" class="mt-8 inline-block bg-artisan-accent text-white font-bold py-4 px-10 rounded-lg text-xl hover:bg-amber-700 transition duration-300 shadow-lg">Enroll in Bharat Craftpreneur Today</a>
+        </div>
+        <div class="bg-gray-900 py-4 px-4 text-center text-sm text-gray-400">
+            <p>&copy; 2024 Bharat Craftpreneur. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+            });
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('tab-active');
+                button.classList.add('tab-inactive');
+            });
+
+            document.getElementById(tabName).style.display = 'block';
+            
+            const activeButton = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabName));
+            activeButton.classList.add('tab-active');
+            activeButton.classList.remove('tab-inactive');
+        }
+
+        const ctx = document.getElementById('marketGapChart').getContext('2d');
+        const marketGapChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Software & "How-To" Courses', 'Practical Craft Business Courses'],
+                datasets: [{
+                    label: 'Availability in Skilling Market',
+                    data: [95, 5],
+                    backgroundColor: [
+                        '#D1D5DB', // Gray-300
+                        '#F59E0B'  // Amber-500
+                    ],
+                    borderColor: [
+                        '#9CA3AF', // Gray-400
+                        '#D97706'  // Amber-600
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Estimated Market Share of Online Courses',
+                        font: {
+                            size: 16
+                        },
+                        padding: {
+                            top: 10,
+                            bottom: 20
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
